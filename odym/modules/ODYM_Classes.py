@@ -351,12 +351,3 @@ class Parameter(Obj):
         self.Uncert      = Uncert  # uncertainty of value in %
         self.Unit        = Unit   # Unit of parameter values
 
-  
-       
-
-
-
-        
-#   
-#
-#    

@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "premise"
+authors = [
+  { name="Stefan Pauliuk", email="stefan.pauliuk@indecol.uni-freiburg.de" },
+  { name="Niko Heeren", email="nheeren@ethz.ch" },
+]
+maintainers = [
+  { name="Stefan Pauliuk", email="stefan.pauliuk@indecol.uni-freiburg.de" }
+]
+description = "ODYM - Open Dynamic Material Systems Model"
+readme = "README.md"
+dynamic = ["dependencies", "version"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+source = "https://github.com/IndEcol/ODYM"
+homepage = "https://github.com/IndEcol/ODYM"
+tracker = "https://github.com/IndEcol/ODYM/issues"
+
+[project.optional-dependencies]
+testing = [
+    "setuptools",
+    "pytest",
+]
+
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+include-package-data = true
+packages = ["odym"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+version = {attr = "odym.__version__"}
+
+[tool.pytest.ini_options]
+markers = [
+    # marks tests that require ecoinvent (to be disabled on Travis)
+    "ecoinvent",
+    "serial"
+]
+norecursedirs = [
+    "dist",
+    "build",
+    ".tox"
+]
+testpaths = ["tests/*.py"]
+
+[tool.flake8]
+# Some sane defaults for the code style checker flake8
+max_line_length = 88
+extend_ignore = ["E203", "W503"]
+# ^  Black-compatible
+#    E203 and W503 have edge cases handled by black
+exclude = [
+    ".tox",
+    "build",
+    "dist",
+    ".eggs",
+    "docs/conf.py",
+]
