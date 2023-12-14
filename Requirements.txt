@@ -3,4 +3,6 @@ scipy
 xlrd
 xlwt
 openpyxl
+pandas
 pypandoc
+matplotlib

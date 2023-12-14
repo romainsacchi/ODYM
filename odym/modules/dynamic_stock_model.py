@@ -27,13 +27,6 @@ import numpy as np
 import scipy.stats
 
 
-def __version__():
-    """Return a brief version string and statement for this class."""
-    return str("1.0"), str(
-        "Class DynamicStockModel, dsm. Version 1.0. Last change: July 25th, 2019. Check https://github.com/IndEcol/ODYM for latest version."
-    )
-
-
 class DynamicStockModel(object):
 
     """Class containing a dynamic stock model

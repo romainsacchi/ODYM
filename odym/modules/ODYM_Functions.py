@@ -22,7 +22,7 @@ import openpyxl
 import pypandoc
 from scipy.interpolate import make_interp_spline
 from scipy.interpolate import interp1d
-import ODYM_Classes as msc
+from .ODYM_Classes import Classification
 
 ####################################
 #      Define functions            #
@@ -289,7 +289,7 @@ def ParseClassificationFile_Main(Classsheet, Mylog):
                 Classsheet.cell(ri, ci).value
             )  # read the classification items
             ri += 1
-        MasterClassification[ThisName] = msc.Classification(
+        MasterClassification[ThisName] = Classification(
             Name=ThisName, Dimension=ThisDim, ID=ThisID, UUID=ThisUUID, Items=TheseItems
         )
         ci += 1
